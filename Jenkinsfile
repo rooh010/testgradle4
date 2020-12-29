@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-	      pollSCM('H/15 * * * *')
+	      pollSCM('0 0 * * 0')  //every sunday midnight
     }
     
         tools {
