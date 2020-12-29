@@ -27,6 +27,7 @@ pipeline {
         stage('Containerise') {
             steps {
                 echo 'Dockering..'
+                bat 'docker build . -t testgradle4'
             }
         }
         stage('Deploy') {
