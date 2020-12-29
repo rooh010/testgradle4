@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "gradlew.bat"
+                bat "gradlew.bat"
                 echo 'Build Complete'
             }
         }
