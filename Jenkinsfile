@@ -8,18 +8,25 @@ pipeline {
         tools {
         gradle "GRADLE_LATEST"
     }
-    
     stages {
+    
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                bat 'gradle test'
+            }
+        }
+            
         stage('Build') {
             steps {
                 echo 'Building..'
                 bat 'gradle build'
-                echo 'Build Complete'
             }
         }
-        stage('Test') {
+
+        stage('Containerise') {
             steps {
-                echo 'Testing..'
+                echo 'Dockering..'
             }
         }
         stage('Deploy') {

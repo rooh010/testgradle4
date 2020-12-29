@@ -7,4 +7,9 @@ public class Program {
 		System.out.println("some text");
 	}
 
+	public boolean someMethod() {
+		System.out.println("some text");
+		return true;
+	}
+
 }
