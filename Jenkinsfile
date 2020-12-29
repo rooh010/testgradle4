@@ -27,12 +27,14 @@ pipeline {
         stage('Containerise') {
             steps {
                 echo 'Dockering..'
-                bat 'docker build . -t testgradle4'
+                powershell 'minikube docker-env | Invoke-Expression'
+                powershell 'docker build . -t testgradle4'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                powershell 'kubectl run testgradle4 --image=testgradle4:latest --image-pull-policy=Never'
             }
         }
     }
