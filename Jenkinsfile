@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat 'gradle ./lib/build.grade'
+                bat 'gradle ./lib/build.gradle'
                 echo 'Build Complete'
             }
         }
