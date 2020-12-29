@@ -27,6 +27,7 @@ pipeline {
         stage('Containerise') {
             steps {
                 echo 'Dockering..'
+                powershell 'minikube start'
                 powershell 'minikube docker-env | Invoke-Expression'
                 powershell 'docker build . -t testgradle4'
             }
@@ -35,6 +36,8 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 powershell 'kubectl run testgradle4 --image=testgradle4:latest --image-pull-policy=Never'
+                powershell 'kubectl delete -n default deployment testgradle4' // remove it
+                powershell 'minikube stop'
             }
         }
     }
