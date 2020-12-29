@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Dockering..'
                 powershell 'minikube start'
-                powershell 'minikube docker-env | Invoke-Expression'
+                powershell 'minikube docker-env | Invoke-Expression' // this adds the image to the docker enviro for minikube so it can be accessed, not needed outside of testing
                 powershell 'docker build . -t testgradle4'
             }
         }
